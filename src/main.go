@@ -16,5 +16,5 @@ func main()  {
   var area int = base * height
 
   fmt.Println("+==============+")
-  fmt.Println("Area:",area)
+  fmt.Println("\nArea:",area)
 }
