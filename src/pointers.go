@@ -8,13 +8,17 @@ type pc struct {
 	brand string
 }
 
-func (myPc pc)ping()  {
-  fmt.Println(myPc.brand, "Pong")
-  
+func (myPc pc) ping() {
+	fmt.Println(myPc.brand, "Pong")
+
 }
 
-func (myPc *pc) duplicateRam()  {
-  myPc.ram = myPc.ram * 2
+func (myPc *pc) duplicateRam() {
+	myPc.ram = myPc.ram * 2
+}
+
+func (myPc pc) Stringify() string {
+	return fmt.Sprintf("The pc have \t %d GB of RAM\n\t\t %d TB of disk\n\t\t %s is your brand", myPc.ram, myPc.disk, myPc.brand)
 }
 
 func main() {
@@ -28,12 +32,15 @@ func main() {
 
 	*b = 51
 	fmt.Println("the content of a modified by his pointer is:", a)
-fmt.Println("=====================")
-  myPc := pc{ram: 16, disk: 5, brand: "IBM"}
-  // fmt.Println(myPc)
-  myPc.ping()
-  fmt.Println(myPc)
-  myPc.duplicateRam()
-  fmt.Println(myPc)
+	fmt.Println("=====================")
+	myPc := pc{ram: 16, disk: 5, brand: "IBM"}
+	// fmt.Println(myPc)
+	myPc.ping()
+	fmt.Println(myPc)
+	myPc.duplicateRam()
+	fmt.Println(myPc)
 
+	// Print with a formater function
+	fmt.Println("=====================")
+	fmt.Println(myPc.Stringify())
 }
